@@ -8,6 +8,8 @@
 img{
     height: 60px;
     width: 60px;
+    cursor:pointer;
+    border-radius: 50%;
 }
 
 .background{
@@ -59,4 +61,59 @@ img{
     font-size: 20px;
     color: lightgray;
     padding: 10px;
+}
+
+/* section alert mex */
+.alert-notify{
+    background-color: rgb(16, 154, 249);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.bell-alert{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: white;
+    margin-right: 10px;
+}
+
+.bell-alert i{
+    font-size: 22px;
+    color: rgb(153, 223, 252);
+
+}
+
+.mex-alert p{
+    font-size: 12px;
+    text-decoration: underline;
+
+}
+
+/* barra di ricerca */
+
+.research{
+    height: 50px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+.research i{
+    color: rgb(190, 193, 195);
+    font-size: 15px;
+    padding: 10px;
+}
+
+#search-bar{
+    border: none;
+    width: 90%;
+    line-height: 30px;
+    padding-left: 10px;
+    border-radius: 20px;
 }
