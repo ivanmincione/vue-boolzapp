@@ -11,54 +11,72 @@
         <title>Vue Boolzapp</title>
     </head>
     <body>
+        <div id="root">
 
-        <!-- background page -->
-        <div class="background">
-            <div class="top-background"></div>
-        </div>
-
-        <!-- container generale della chat diviso in due parti -->
-        <div class="container">
-            <!-- parte sinistra  -->
-            <div class="list-user">
-                <div class="img-user">  <!-- immagine profilo e icone -->
-                    <img src="https://lh3.googleusercontent.com/proxy/xOrcSfUrXOVUAE6saI_mWxNTLZiV6_XU5z4RqmckPGfP5xapKbckX2bfyF9KZ1HcaF8-6gvnXllDPgXM1d2Zz4tI90R_p91nEYZugOTTeEELYBihq17os_-kClG6CwQqmNBPTrumv-zbTnwlIsRgK79hgRcJrw" alt="imgProfile">
-                    <div class="right-icons">
-                        <i class="fas fa-circle-notch"></i>
-                        <i class="fas fa-comment-alt"></i>
-                        <i class="fas fa-ellipsis-v"></i>
-                    </div>
-                </div>
-                <!-- sezione alert delle notifiche -->
-                <div class="alert-notify">
-                    <div class="bell-alert">
-                        <i class="fas fa-bell-slash"></i>
-                    </div>
-                    <div class="mex-alert">
-                        <h5>Ricevi notifiche di nuovi messaggi</h5>
-                        <p>Attiva notifiche desktop</p>
-                    </div>
-                </div>
-                <!-- ricerca nomi contatti -->
-                <div class="research">
-                    <i class="fas fa-search"></i>
-                    <input id="search-bar" type="text" placeholder="Cerca o inizia una nuova chat">
-                </div>
-
-
-            <!-- end list user -->
+            <!-- background page -->
+            <div class="background">
+                <div class="top-background"></div>
             </div>
 
+            <!-- container generale della chat diviso in due parti -->
+            <div class="container">
+                <!-- parte sinistra  -->
+                <div class="list-user">
+                    <div class="img-user-left">  <!-- immagine profilo più icone -->
+                        <img src="https://lh3.googleusercontent.com/proxy/xOrcSfUrXOVUAE6saI_mWxNTLZiV6_XU5z4RqmckPGfP5xapKbckX2bfyF9KZ1HcaF8-6gvnXllDPgXM1d2Zz4tI90R_p91nEYZugOTTeEELYBihq17os_-kClG6CwQqmNBPTrumv-zbTnwlIsRgK79hgRcJrw" alt="imgProfile">
+                        <div class="right-icons">
+                            <i class="fas fa-circle-notch"></i>
+                            <i class="fas fa-comment-alt"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                    <!-- sezione alert delle notifiche -->
+                    <div class="alert-notify">
+                        <div class="bell-alert">
+                            <i class="fas fa-bell-slash"></i>
+                        </div>
+                        <div class="mex-alert">
+                            <h5>Ricevi notifiche di nuovi messaggi</h5>
+                            <p>Attiva notifiche desktop</p>
+                        </div>
+                    </div>
+                    <!-- ricerca nomi contatti -->
+                    <div class="research">
+                        <i class="fas fa-search"></i>
+                        <input id="search-bar" type="text" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                    <!-- lista delle chat recenti -->
+                    <div class="recent-chat">
+                        <div class="list-chat" v-for="(user, index) in contacts">
+                            <div class="recent-user-img">
+                                <img src="https://lh3.googleusercontent.com/proxy/xOrcSfUrXOVUAE6saI_mWxNTLZiV6_XU5z4RqmckPGfP5xapKbckX2bfyF9KZ1HcaF8-6gvnXllDPgXM1d2Zz4tI90R_p91nEYZugOTTeEELYBihq17os_-kClG6CwQqmNBPTrumv-zbTnwlIsRgK79hgRcJrw" alt="">
+                            </div>
+                            <div class="recent-user-mex">
+                                <h4>{{ user.name }}</h4>
+                                <p>Non poteva esserer altrimenti</p>
+                            </div>
+                        </div>
+                    </div>
+                <!-- end list user -->
+                </div>
 
+                <!-- parte destra -->
+                <div class="chat">
+                    <div class="img-user-right">  <!-- immagine utente più icone -->
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBv0EsilpTrVOsbRD-BwIIUCi5NGAUU85ohQ&usqp=CAU" alt="imgProfile">
+                        <div class="right-icons">
+                            <i class="fas fa-search"></i>
+                            <i class="fas fa-paperclip"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
 
-
-            <!-- parte destra -->
-            <div class="chat">
+                </div>
 
             </div>
 
-        </div>
-
+    <!-- end root -->
+    </div>
 
 
 

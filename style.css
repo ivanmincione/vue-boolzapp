@@ -12,6 +12,10 @@ img{
     border-radius: 50%;
 }
 
+ul{
+    list-style-type: none;
+}
+
 .background{
     width: 100vw;
     height: 100vh;
@@ -40,7 +44,9 @@ img{
 
 .list-user{
     width: 40%;
-    background-color: gray;
+    height: 100%;
+    /* background-color: gray; */
+    border-right: 2px solid silver;
 }
 
 .chat{
@@ -48,7 +54,7 @@ img{
     background-color: coral;
 }
 
-.img-user{
+.img-user-left{
     height: 80px;
     background-color: white;
     display: flex;
@@ -107,13 +113,42 @@ img{
 .research i{
     color: rgb(190, 193, 195);
     font-size: 15px;
-    padding: 10px;
+    padding-left: 30px;
 }
 
 #search-bar{
     border: none;
-    width: 90%;
+    width: 80%;
     line-height: 30px;
     padding-left: 10px;
+    margin-left: 10px;
     border-radius: 20px;
+}
+
+.recent-chat{
+    height: calc( 100% - 80px - 80px - 50px );
+    background-color: white;
+}
+.list-chat{
+    display: flex;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.recent-user-mex{
+    padding: 10px;
+}
+
+.recent-user-mex p{
+    font-size: 14px;
+    color: silver;
+}
+
+.img-user-right{
+    height: 80px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
 }
