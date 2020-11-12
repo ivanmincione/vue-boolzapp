@@ -47,9 +47,9 @@
                     </div>
                     <!-- lista delle chat recenti -->
                     <div class="recent-chat">
-                        <div class="list-chat" v-for="(user, index) in contacts">
+                        <div class="list-chat" v-for="(user, index) in contacts" @click="selectChat(index)">
                             <div class="recent-user-img">
-                                <img src="https://lh3.googleusercontent.com/proxy/xOrcSfUrXOVUAE6saI_mWxNTLZiV6_XU5z4RqmckPGfP5xapKbckX2bfyF9KZ1HcaF8-6gvnXllDPgXM1d2Zz4tI90R_p91nEYZugOTTeEELYBihq17os_-kClG6CwQqmNBPTrumv-zbTnwlIsRgK79hgRcJrw" alt="">
+                                <img :src="user.avatar" alt="">
                             </div>
                             <div class="recent-user-mex">
                                 <h4>{{ user.name }}</h4>
@@ -63,7 +63,15 @@
                 <!-- parte destra -->
                 <div class="chat">
                     <div class="img-user-right">  <!-- immagine utente più icone -->
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBv0EsilpTrVOsbRD-BwIIUCi5NGAUU85ohQ&usqp=CAU" alt="imgProfile">
+                        <div class="info-user-active">
+                            <div>
+                                <img :src="contacts[chatActive].avatar" alt="imgProfile">
+                            </div>
+                            <div>
+                                <h4> {{ contacts[chatActive].name }}</h4>
+                                <p>ultimo accesso 15:40</p>
+                            </div>
+                        </div>
                         <div class="right-icons">
                             <i class="fas fa-search"></i>
                             <i class="fas fa-paperclip"></i>
@@ -71,12 +79,11 @@
                         </div>
                     </div>
                     <!-- messaggi in chat -->
-                    <div class="conversation">
-                        <div class=" message mex-in">
-                            <p>adsfdgfdsfsdf</p>
-                        </div>
-                        <div class=" message mex-out">
-                            <p>adsfdgfdsfsdf</p>
+                    <div class="conversation"  >
+                        <div class="chat-mexage" v-for="mex in contacts[chatActive].messages" >
+                            <p :class="mex.status"> {{ mex.message}}
+                            </p>
+
                         </div>
                     </div>
                     <!-- input scrittura messaggi -->

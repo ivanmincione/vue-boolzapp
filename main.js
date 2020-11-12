@@ -4,7 +4,7 @@ var app = new Vue ({
         contacts: [
             {
                 name: 'Michele',
-                avatar: '_1',
+                avatar: 'https://www.otticalamattina.net/images/ico-testimonial-man-270x270.png',
                 visible: true,
                 messages: [
                     {
@@ -26,7 +26,7 @@ var app = new Vue ({
             },
             {
                 name: 'Fabio',
-                avatar: '_2',
+                avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSdIodeA09HyJj5HEweVAJH200AyozmyMwfBQ&usqp=CAU',
                 visible: true,
                 messages: [
                     {
@@ -48,7 +48,7 @@ var app = new Vue ({
             },
             {
                 name: 'Samuele',
-                avatar: '_3',
+                avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/supportmale-512.png',
                 visible: true,
                 messages: [
                     {
@@ -70,7 +70,7 @@ var app = new Vue ({
             },
             {
                 name: 'Luisa',
-                avatar: '_4',
+                avatar: 'https://www.otticaarteeluci.it/images/ico-testimonial-girl-270x270.png',
                 visible: true,
                 messages: [
                     {
@@ -89,8 +89,20 @@ var app = new Vue ({
         // end array concats
         ],
 
+        chatActive: 0,
     // ---end DATA---
     },
+
+    methods: {
+
+        selectChat(index){
+            this.chatActive = index;
+        },
+
+
+
+    //---end methods---
+    }
 
 
 
