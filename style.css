@@ -165,6 +165,26 @@ i{
 .conversation{
 height: calc( 100% - 80px - 80px );
 background-image: url("https://thumbs.dreamstime.com/b/social-media-sketch-seamless-doodle-pattern-social-media-sketch-vector-seamless-doodle-pattern-gray-icons-white-background-174378665.jpg");
+clear: both;
+padding: 20px;
+
+}
+
+.message{
+    max-width: 250px;
+    padding: 10px;
+    clear: both;
+    border-radius: 10px;
+    border: 1px solid silver;
+}
+
+.mex-in{
+    background-color: white;
+    float: left;
+}
+.mex-out{
+    background-color: lightgreen;
+    float: right;
 }
 
 .input-mex{
