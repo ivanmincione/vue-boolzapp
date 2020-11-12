@@ -16,6 +16,15 @@ ul{
     list-style-type: none;
 }
 
+input{
+    border: none;
+}
+
+i{
+    cursor: pointer;
+    font-size: 20px;
+}
+
 .background{
     width: 100vw;
     height: 100vh;
@@ -56,7 +65,7 @@ ul{
 
 .img-user-left{
     height: 80px;
-    background-color: white;
+    background-color: #F4F0ED;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -146,9 +155,27 @@ ul{
 
 .img-user-right{
     height: 80px;
-    background-color: white;
+    background-color: #F4F0ED;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+}
+
+.conversation{
+height: calc( 100% - 80px - 80px );
+background-image: url("https://thumbs.dreamstime.com/b/social-media-sketch-seamless-doodle-pattern-social-media-sketch-vector-seamless-doodle-pattern-gray-icons-white-background-174378665.jpg");
+}
+
+.input-mex{
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #F4F0ED;
+}
+
+#input-message{
+    width: 80%;
+    line-height: 30px;
 }
