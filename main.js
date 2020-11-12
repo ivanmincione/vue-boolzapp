@@ -90,6 +90,8 @@ var app = new Vue ({
         ],
 
         chatActive: 0,
+        newMex:'',
+        search:'',
     // ---end DATA---
     },
 
@@ -99,10 +101,48 @@ var app = new Vue ({
             this.chatActive = index;
         },
 
+        // aggiungo un nuovo messaggio all'interno di un nuovo oggetto creato dentro la funzione
+        addNewMex(newMessage){
+             var newMessage = {
+                 date: '10/01/2020 15:30:55',
+                 message: '',
+                 status: 'sent'
+             }
+
+             newMessage.message = this.newMex;
+
+             this.contacts[this.chatActive].messages.push(newMessage);
+             //azzero l'input
+             this.newMex = '';
+
+             //imposto un settimeout per la risposta "ok"
+             // senza arrow function non funziona
+            setTimeout(() => {
+                 let reply = {
+                    date: '10/01/2020 15:31:00',
+                    message: 'ok',
+                    status: 'received'
+                 }
+                 this.contacts[this.chatActive].messages.push(reply);
+            }, 1000)
+        },
+
+
+
+
 
 
     //---end methods---
-    }
+},
+    // funzione per ricercare il nome
+
+    // computed:{
+    //     filteredContacts:function() {
+    //         return this.contacts.filter((cust) => {
+    //             return cust.name.match(this.search)
+    //         });
+    //     },
+    // },
 
 
 

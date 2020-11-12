@@ -43,7 +43,7 @@
                     <!-- ricerca nomi contatti -->
                     <div class="research">
                         <i class="fas fa-search"></i>
-                        <input id="search-bar" type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input id="search-bar" type="text" placeholder="Cerca o inizia una nuova chat" v-model="search">
                     </div>
                     <!-- lista delle chat recenti -->
                     <div class="recent-chat">
@@ -89,7 +89,7 @@
                     <!-- input scrittura messaggi -->
                     <div class="input-mex">
                         <i class="far fa-smile"></i>
-                        <input id="input-message" type="text" name="" value="">
+                        <input id="input-message" type="text" name="" value="" placeholder="scrivi un messaggio" v-model="newMex" @keyUp.enter="addNewMex">
                         <i class="fas fa-microphone"></i>
                     </div>
 

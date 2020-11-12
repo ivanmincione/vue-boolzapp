@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-/* ridimensiono tutte le immagini avatar */
+/* classi generali */
 img{
     height: 60px;
     width: 60px;
@@ -42,6 +42,7 @@ i{
     background-color: #1a9688;
 }
 
+/* container generale */
 .container{
     display: flex;
     position: absolute;
@@ -52,16 +53,11 @@ i{
     border: 2px solid;
 }
 
+/* sezione di sinistra */
 .list-user{
     width: 40%;
     height: 100%;
-    /* background-color: gray; */
     border-right: 2px solid silver;
-}
-
-.chat{
-    width: 60%;
-    background-color: coral;
 }
 
 .img-user-left{
@@ -81,7 +77,7 @@ i{
 
 /* section alert mex */
 .alert-notify{
-    background-color: rgb(16, 154, 249);
+    background-color: rgb(90, 189, 244);
     height: 80px;
     display: flex;
     align-items: center;
@@ -108,11 +104,11 @@ i{
 .mex-alert p{
     font-size: 12px;
     text-decoration: underline;
+    cursor: pointer;
 
 }
 
 /* barra di ricerca */
-
 .research{
     height: 50px;
     background-color: white;
@@ -135,14 +131,20 @@ i{
     border-radius: 20px;
 }
 
+/* sezione chat recenti */
 .recent-chat{
     height: calc( 100% - 80px - 80px - 50px );
     background-color: white;
+    overflow-y: auto;
 }
 .list-chat{
     display: flex;
     padding: 10px;
-    overflow-y: auto;
+}
+
+.list-chat:hover{
+    background-color: rgb(231, 233, 236);
+    cursor: pointer;
 }
 
 .recent-user-mex{
@@ -152,6 +154,11 @@ i{
 .recent-user-mex p{
     font-size: 14px;
     color: silver;
+}
+
+/* sezione di destra */
+.chat{
+    width: 60%;
 }
 
 .img-user-right{
@@ -169,12 +176,14 @@ i{
     padding: 10px;
 }
 
+/* sezione chat attiva */
 .conversation{
 height: calc( 100% - 80px - 80px );
 background-image: url("https://thumbs.dreamstime.com/b/social-media-sketch-seamless-doodle-pattern-social-media-sketch-vector-seamless-doodle-pattern-gray-icons-white-background-174378665.jpg");
 clear: both;
 padding: 20px;
-
+overflow-y: auto;
+object-fit: cover;
 }
 
 .chat-mexage p{
@@ -183,6 +192,8 @@ padding: 20px;
     clear: both;
     border-radius: 10px;
     border: 1px solid silver;
+    font-size: 20px;
+    margin-bottom: 5px;
 }
 
 .chat-mexage p.received{
@@ -194,6 +205,7 @@ padding: 20px;
     float: right;
 }
 
+/* sezione scrittura mex */
 .input-mex{
     height: 80px;
     display: flex;
