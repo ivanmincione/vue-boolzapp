@@ -139,9 +139,10 @@ var app = new Vue ({
     // funzione per ricercare il nome
         computed: {
             filteredList() {
-                return this.contacts.filter((item) =>
-                item.name.toLowerCase().includes(this.search.toLowerCase())
+                return this.contacts.filter((user, index) =>
+                user.name.toLowerCase().includes(this.search.toLowerCase())
                 )
+                // a questo punto una volta filtrata la lista dei contatti cliccando NON segue più il giusto indice --- ???? ---
             },
 
         //end computed
