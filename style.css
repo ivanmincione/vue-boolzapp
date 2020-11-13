@@ -68,6 +68,10 @@ i{
     align-items: center;
     padding: 10px;
 }
+.profile-user{
+    display: flex;
+    align-items: center;
+}
 
 .right-icons i{
     font-size: 20px;
@@ -140,11 +144,16 @@ i{
 .list-chat{
     display: flex;
     padding: 10px;
+    justify-content: space-between;
 }
 
 .list-chat:hover{
     background-color: rgb(231, 233, 236);
     cursor: pointer;
+}
+
+.recent-conversations{
+    display: flex;
 }
 
 .recent-user-mex{
@@ -154,6 +163,12 @@ i{
 .recent-user-mex p{
     font-size: 14px;
     color: silver;
+}
+
+.time-last-mex{
+    font-size: 12px;
+    color: silver;
+    float: right;
 }
 
 /* sezione di destra */

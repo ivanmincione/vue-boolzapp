@@ -1,6 +1,10 @@
 var app = new Vue ({
     el: "#root",
     data: {
+        profile: {
+            name: "Ivan",
+            avatar: "https://lh3.googleusercontent.com/proxy/xOrcSfUrXOVUAE6saI_mWxNTLZiV6_XU5z4RqmckPGfP5xapKbckX2bfyF9KZ1HcaF8-6gvnXllDPgXM1d2Zz4tI90R_p91nEYZugOTTeEELYBihq17os_-kClG6CwQqmNBPTrumv-zbTnwlIsRgK79hgRcJrw"
+        },
         contacts: [
             {
                 name: 'Michele',
@@ -133,7 +137,7 @@ var app = new Vue ({
 
 
     //---end methods---
-},
+    },
     // funzione per ricercare il nome
 
     // computed:{
