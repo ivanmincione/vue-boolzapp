@@ -3,7 +3,7 @@ var app = new Vue ({
     data: {
         profile: {
             name: "Ivan",
-            avatar: "https://lh3.googleusercontent.com/proxy/xOrcSfUrXOVUAE6saI_mWxNTLZiV6_XU5z4RqmckPGfP5xapKbckX2bfyF9KZ1HcaF8-6gvnXllDPgXM1d2Zz4tI90R_p91nEYZugOTTeEELYBihq17os_-kClG6CwQqmNBPTrumv-zbTnwlIsRgK79hgRcJrw"
+            avatar: "https://thumbs.dreamstime.com/b/male-avatar-icon-flat-style-male-user-icon-cartoon-man-avatar-hipster-vector-stock-91462914.jpg",
         },
         contacts: [
             {
@@ -118,7 +118,6 @@ var app = new Vue ({
              this.contacts[this.chatActive].messages.push(newMessage);
              //azzero l'input
              this.newMex = '';
-
              //imposto un settimeout per la risposta "ok"
              // senza arrow function non funziona
             setTimeout(() => {
@@ -133,22 +132,20 @@ var app = new Vue ({
 
 
 
-
-
-
     //---end methods---
     },
+
+
     // funzione per ricercare il nome
+        computed: {
+            filteredList() {
+                return this.contacts.filter((item) =>
+                item.name.toLowerCase().includes(this.search.toLowerCase())
+                )
+            },
 
-    // computed:{
-    //     filteredContacts:function() {
-    //         return this.contacts.filter((cust) => {
-    //             return cust.name.match(this.search)
-    //         });
-    //     },
-    // },
-
-
+        //end computed
+        },
 
 
 

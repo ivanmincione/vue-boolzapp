@@ -72,6 +72,9 @@ i{
     display: flex;
     align-items: center;
 }
+.profile-user span{
+    margin-left: 10px;
+}
 
 .right-icons i{
     font-size: 20px;
@@ -203,22 +206,36 @@ object-fit: cover;
 
 .chat-mexage p{
     max-width: 250px;
+    min-width: 30px;
     padding: 10px;
     clear: both;
     border-radius: 10px;
     border: 1px solid silver;
     font-size: 20px;
     margin-bottom: 5px;
+    position: relative;
 }
 
 .chat-mexage p.received{
     background-color: white;
     float: left;
+    position: relative;
 }
 .chat-mexage p.sent{
     background-color: lightgreen;
     float: right;
+    position: relative;
 }
+
+/* #drop-menu{
+    width: 200px;
+    height: 200px;
+    background-color: azure;
+    position: relative;
+    top:20px;
+    left:20px;
+    display: none;
+} */
 
 /* sezione scrittura mex */
 .input-mex{
@@ -232,4 +249,8 @@ object-fit: cover;
 #input-message{
     width: 80%;
     line-height: 30px;
+}
+
+#invio-mex:hover{
+    color: lightgreen;
 }

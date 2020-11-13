@@ -25,7 +25,7 @@
                     <div class="img-user-left">  <!-- immagine profilo più icone -->
                         <div class="profile-user">
                             <img :src="profile.avatar" alt="imgProfile">
-                            <span>{{ profile.name}}</span>
+                            <span>{{ profile.name }}</span>
                         </div>
                         <div class="right-icons">
                             <i class="fas fa-circle-notch"></i>
@@ -50,7 +50,8 @@
                     </div>
                     <!-- lista delle chat recenti -->
                     <div class="recent-chat">
-                        <div class="list-chat" v-for="(user, index) in contacts" @click="selectChat(index)">
+                        <!-- ciclo direttamente sulla funzione di filtro  -->
+                        <div class="list-chat" v-for="(user, index) in filteredList" @click="selectChat(index)">
                             <div class="recent-conversations">
                                 <div class="recent-user-img">
                                     <img :src="user.avatar" alt="user.name">
@@ -97,7 +98,7 @@
                     <div class="input-mex">
                         <i class="far fa-smile"></i>
                         <input id="input-message" type="text" name="" value="" placeholder="scrivi un messaggio" v-model="newMex" @keyUp.enter="addNewMex">
-                        <i @click="addNewMex" class="fas fa-paper-plane"></i>
+                        <i id="invio-mex" @click="addNewMex" class="fas fa-paper-plane"></i>
                         <i class="fas fa-microphone"></i>
                     </div>
 
