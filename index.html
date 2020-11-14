@@ -91,6 +91,10 @@
                     <div class="conversation"  >
                         <div class="chat-mexage" v-for="mex in contacts[chatActive].messages" >
                             <p :class="mex.status"> {{ mex.message}}
+                                <i id="arrow-menu" class="fas fa-angle-down">
+                                    <span @click="">cancella</span>
+                                </i>
+
                             </p>
                         </div>
                     </div>

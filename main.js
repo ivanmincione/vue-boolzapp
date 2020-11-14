@@ -46,7 +46,7 @@ var app = new Vue ({
                     {
                         date: '20/03/2020 16:35:00',
                         message: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                        status: 'received'
+                        status: 'sent'
                     },
                 ],
             },
@@ -86,6 +86,23 @@ var app = new Vue ({
                         date: '10/01/2020 15:50:00',
                         message: 'Si, ma preferirei andare al cinema',
                         status: 'received'
+                    },
+                ],
+            },
+            {
+                name: 'Boolean',
+                avatar: 'https://www.bheroes.it/wp-content/uploads/2020/07/Logo-boolean.png',
+                visible: true,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        message: 'Ti piace il nostro corso?',
+                        status: 'received'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        message: 'Si, è bellissimo',
+                        status: 'sent'
                     },
                 ],
             },
@@ -129,6 +146,10 @@ var app = new Vue ({
                  this.contacts[this.chatActive].messages.push(reply);
             }, 1000)
         },
+
+        // remove(){
+        //
+        // },
 
 
 
