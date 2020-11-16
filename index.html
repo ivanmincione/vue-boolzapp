@@ -6,8 +6,10 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
         <!-- VUE.JS -->
         <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <!-- MOMENTS JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" charset="utf-8"></script>
         <!-- STYLE -->
-    <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style.css">
         <title>Vue Boolzapp</title>
     </head>
     <body>
@@ -51,18 +53,18 @@
                     <!-- lista delle chat recenti -->
                     <div class="recent-chat">
                         <!-- ciclo direttamente sulla funzione di filtro  -->
-                        <div class="list-chat" v-for="(user, index) in filteredList" @click="selectChat(index)">
+                        <div class="list-chat" v-for="(user, index) in filteredList" @click="selectChat(index)" :class="index == chatActive ? 'active' : null">
                             <div class="recent-conversations">
                                 <div class="recent-user-img">
                                     <img :src="user.avatar" alt="user.name">
                                 </div>
                                 <div class="recent-user-mex">
                                     <h4>{{ user.name }}</h4>
-                                    <p>Non poteva esserer altrimenti</p>
+                                    <p>{{ user.messages[user.messages.length - 1].message}}</p>
                                 </div>
                             </div>
                             <div class="time-last-mex">
-                                <span> 12:50</span>
+                                <span> {{ timeLastMex(user) }}</span>
                             </div>
                         </div>
                     </div>
@@ -78,7 +80,10 @@
                             </div>
                             <div>
                                 <h4> {{ contacts[chatActive].name }}</h4>
-                                <p>ultimo accesso 15:40</p>
+                                <p>ultimo accesso
+                                    <span> {{  contacts[chatActive].messages[contacts[chatActive].messages.length - 1].date }}
+                                    </span>
+                                </p>
                             </div>
                         </div>
                         <div class="right-icons">
@@ -91,8 +96,10 @@
                     <div class="conversation"  >
                         <div class="chat-mexage" v-for="mex in contacts[chatActive].messages" >
                             <p :class="mex.status"> {{ mex.message}}
+                                <span class="time-messages"> 12:00 </span>
                                 <i id="arrow-menu" class="fas fa-angle-down">
-                                    <span @click="">cancella</span>
+                                    <span @click="remove">Cancella</span>
+
                                 </i>
 
                             </p>

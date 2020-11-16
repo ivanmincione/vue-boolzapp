@@ -56,7 +56,7 @@ var app = new Vue ({
                 visible: true,
                 messages: [
                     {
-                        date: '28/03/2020 10:10:40',
+                        date: '25/03/2020 10:10:30',
                         message: 'La Marianna va in campagna',
                         status: 'received'
                     },
@@ -66,7 +66,7 @@ var app = new Vue ({
                         status: 'sent'
                     },
                     {
-                        date: '28/03/2020 16:15:22',
+                        date: '10/03/2020 10:20:30',
                         message: 'Ah scusa!',
                         status: 'received'
                     },
@@ -95,12 +95,12 @@ var app = new Vue ({
                 visible: true,
                 messages: [
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '17/06/2020 15:30:55',
                         message: 'Ti piace il nostro corso?',
                         status: 'received'
                     },
                     {
-                        date: '10/01/2020 15:50:00',
+                        date: '17/06/2020 15:31:10',
                         message: 'Si, è bellissimo',
                         status: 'sent'
                     },
@@ -113,6 +113,8 @@ var app = new Vue ({
         chatActive: 0,
         newMex:'',
         search:'',
+        time: '',
+
     // ---end DATA---
     },
 
@@ -140,18 +142,34 @@ var app = new Vue ({
             setTimeout(() => {
                  let reply = {
                     date: '10/01/2020 15:31:00',
-                    message: 'ok',
+                    message: 'okok',
                     status: 'received'
                  }
                  this.contacts[this.chatActive].messages.push(reply);
             }, 1000)
         },
 
-        // remove(){
-        //
+
+        // Funzione per cancellare un messaggio
+        remove(index){
+            this.contacts[this.chatActive].messages.splice(this.index, 1);
+        },
+
+        // provare con funzione delete di vue
+        // remove() {
+        //     this.delete(this.contacts{messages.this.message})
         // },
 
+        //funzione calcolo dell' ora
+        time(mex) {
+            return moment().format("LT");
+        },
 
+         timeLastMex(user) {
+             // seleziono l'ultimo messaggio dell'array
+             var time = user.messages[user.messages.length - 1].date;
+             return moment(time,"LT").format("LT");
+         },
 
     //---end methods---
     },
@@ -160,9 +178,9 @@ var app = new Vue ({
     // funzione per ricercare il nome
         computed: {
             filteredList() {
-                return this.contacts.filter((user, index) =>
-                user.name.toLowerCase().includes(this.search.toLowerCase())
-                )
+                return this.contacts.filter((user, index) => {
+                    return user.name.toLowerCase().includes(this.search.toLowerCase())
+                })
                 // a questo punto una volta filtrata la lista dei contatti cliccando NON segue più il giusto indice --- ???? ---
             },
 
