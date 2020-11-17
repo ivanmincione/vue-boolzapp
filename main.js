@@ -122,21 +122,24 @@ var app = new Vue ({
 
         selectChat(index){
             this.chatActive = index;
+            app.autoScroll();
         },
 
         // aggiungo un nuovo messaggio all'interno di un nuovo oggetto creato dentro la funzione
-        addNewMex(newMessage){
-             var newMessage = {
+        addNewMex(){
+            var newMessage = {
                  date: '10/01/2020 15:30:55',
-                 message: '',
+                 message: this.newMex,
                  status: 'sent'
-             }
-
-             newMessage.message = this.newMex;
+            };
 
              this.contacts[this.chatActive].messages.push(newMessage);
              //azzero l'input
              this.newMex = '';
+
+             // aggiungere vue.nexttick
+             app.autoScroll();
+
              //imposto un settimeout per la risposta "ok"
              // senza arrow function non funziona
             setTimeout(() => {
@@ -146,19 +149,17 @@ var app = new Vue ({
                     status: 'received'
                  }
                  this.contacts[this.chatActive].messages.push(reply);
+
+                 app.autoScroll();
             }, 1000)
         },
 
 
         // Funzione per cancellare un messaggio
-        remove(index){
-            this.contacts[this.chatActive].messages.splice(this.index, 1);
-        },
+        remove(){
+            this.contacts[this.chatActive].messages.splice(this.chatActive.message, 1 );
+         },
 
-        // provare con funzione delete di vue
-        // remove() {
-        //     this.delete(this.contacts{messages.this.message})
-        // },
 
         //funzione calcolo dell' ora
         time(mex) {
@@ -171,8 +172,21 @@ var app = new Vue ({
              return moment(time,"LT").format("LT");
          },
 
+        autoScroll(){
+            Vue.nextTick(function () {
+                let chatPage = document.getElementById('chat-page');
+                chatPage.scrollTop = chatPage.scrollHeight;
+            });
+        },
+
+
     //---end methods---
     },
+
+    mounted:
+        function() {
+            this.autoScroll();
+        },
 
 
     // funzione per ricercare il nome

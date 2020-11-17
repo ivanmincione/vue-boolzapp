@@ -93,12 +93,12 @@
                         </div>
                     </div>
                     <!-- messaggi in chat -->
-                    <div class="conversation"  >
-                        <div class="chat-mexage" v-for="mex in contacts[chatActive].messages" >
+                    <div id="chat-page" class="conversation"  >
+                        <div class="chat-mexage" v-for="(mex, index) in contacts[chatActive].messages" >
                             <p :class="mex.status"> {{ mex.message}}
                                 <span class="time-messages"> 12:00 </span>
                                 <i id="arrow-menu" class="fas fa-angle-down">
-                                    <span @click="remove">Cancella</span>
+                                    <span @click="remove(index)">Cancella</span>
 
                                 </i>
 
