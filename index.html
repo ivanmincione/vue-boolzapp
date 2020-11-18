@@ -48,16 +48,17 @@
                     <!-- ricerca nomi contatti -->
                     <div class="research">
                         <i class="fas fa-search"></i>
-                        <input id="search-bar" type="text" placeholder="Cerca o inizia una nuova chat" v-model="search">
+                        <input id="search-bar" type="text" placeholder="Cerca o inizia una nuova chat" v-model="search" @keyUp="filteredList">
                     </div>
                     <!-- lista delle chat recenti -->
                     <div class="recent-chat">
-                        <!-- ciclo direttamente sulla funzione di filtro  -->
-                        <div class="list-chat" v-for="(user, index) in filteredList" @click="selectChat(index)" :class="index == chatActive ? 'active' : null">
+                        <!-- v-if e ciclo for  -->
+                        <div class="list-chat" v-if="user.visible" v-for="(user, index) in contacts" @click="selectChat(index)" :class="index == chatActive ? 'active' : null">
                             <div class="recent-conversations">
                                 <div class="recent-user-img">
                                     <img :src="user.avatar" alt="user.name">
                                 </div>
+                                <!-- prendo il nome e l'ultimo messaggio dell'user -->
                                 <div class="recent-user-mex">
                                     <h4>{{ user.name }}</h4>
                                     <p>{{ user.messages[user.messages.length - 1].message}}</p>
@@ -99,9 +100,7 @@
                                 <span class="time-messages"> 12:00 </span>
                                 <i id="arrow-menu" class="fas fa-angle-down">
                                     <span @click="remove(index)">Cancella</span>
-
                                 </i>
-
                             </p>
                         </div>
                     </div>
@@ -112,17 +111,10 @@
                         <i id="invio-mex" @click="addNewMex" class="fas fa-paper-plane"></i>
                         <i class="fas fa-microphone"></i>
                     </div>
-
-
-
+                </div>
             </div>
-
-    <!-- end root -->
-    </div>
-
-
-
-
+        <!-- end root -->
+        </div>
 
         <!-- JAVASCRIPT -->
         <script src="main.js" charset="utf-8"></script>

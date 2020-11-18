@@ -48,6 +48,10 @@ i {
     background-color: rgb(231, 233, 236);
 }
 
+.visible {
+    display: block !important;
+}
+
 /* sfondo di background */
 .background{
     width: 100vw;

@@ -132,12 +132,11 @@ var app = new Vue ({
                  message: this.newMex,
                  status: 'sent'
             };
-
              this.contacts[this.chatActive].messages.push(newMessage);
              //azzero l'input
              this.newMex = '';
 
-             // aggiungere vue.nexttick
+             // -------aggiungere vue.nexttick-------
              app.autoScroll();
 
              //imposto un settimeout per la risposta "ok"
@@ -154,16 +153,32 @@ var app = new Vue ({
             }, 1000)
         },
 
+        // funzione di filtro per ricerca utenti
+        filteredList(){
+            // creo variabile per salvare i dati in input trasformati
+            var userSearch = this.search.toLowerCase();
+            // ciclo per cercare corrispondenza dei dati
+            this.contacts.forEach((user, i) => {
+                if(user.name.toLowerCase().includes(userSearch)){
+                    user.visible = true;
+                }else {
+                    user.visible = false;
+                }
+            });
+
+        },
+
 
         // Funzione per cancellare un messaggio
-        remove(){
-            this.contacts[this.chatActive].messages.splice(this.chatActive.message, 1 );
+        remove(index){
+            this.contacts[this.chatActive].messages.splice(index, 1 );
          },
+         // quando elimino l'ultimo messaggio in console appare un errore ---????----
 
 
         //funzione calcolo dell' ora
         time(mex) {
-            return moment().format("LT");
+            return moment(mex.date, 'DD/MM/YY hh:mm:ss').format("LT");
         },
 
          timeLastMex(user) {
@@ -189,17 +204,17 @@ var app = new Vue ({
         },
 
 
-    // funzione per ricercare il nome
-        computed: {
-            filteredList() {
-                return this.contacts.filter((user, index) => {
-                    return user.name.toLowerCase().includes(this.search.toLowerCase())
-                })
-                // a questo punto una volta filtrata la lista dei contatti cliccando NON segue più il giusto indice --- ???? ---
-            },
-
-        //end computed
-        },
+    // funzione per ricercare il nome. Semplificata con un'altra funzione usando un forEach
+        // computed: {
+        //     filteredList() {
+        //         return this.contacts.filter((user, index) => {
+        //             return user.name.toLowerCase().includes(this.search.toLowerCase())
+        //         })
+        //         // a questo punto una volta filtrata la lista dei contatti cliccando NON segue più il giusto indice --- ???? ---
+        //     },
+        //
+        // //end computed
+        // },
 
 
 
